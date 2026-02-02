@@ -7,7 +7,9 @@ class Links extends Table {
   TextColumn get sourceId => text()();
   TextColumn get targetId => text()();
   TextColumn get linkType => text()();
+  TextColumn get linkText => text().nullable()();
   TextColumn get context => text().nullable()();
+  IntColumn get position => integer().withDefault(const Constant(0))();
   IntColumn get createdAt => integer()();
   
   @override

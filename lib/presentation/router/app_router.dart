@@ -28,6 +28,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: '/notes/:id',
         builder: (context, state) {
           final id = state.pathParameters['id']!;
+          // Support for section anchors in the future: /notes/:id#section
+          final uri = state.uri;
+          final section = uri.fragment.isNotEmpty ? uri.fragment : null;
+          
           return NoteEditorScreen(noteId: id);
         },
       ),
